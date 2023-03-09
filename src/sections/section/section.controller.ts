@@ -23,6 +23,11 @@ export class SectionController {
     return this.sectionService.findAll();
   }
 
+  @Get(':id')
+  async getOne(@Param('id') id: number): Promise<Section> {
+    return this.sectionService.getOne(id);
+  }
+
   @Post()
   async addSection(@Body() section: CreateSectionDto): Promise<Section> {
     return this.sectionService.addSection(section);

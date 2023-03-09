@@ -14,6 +14,10 @@ export class SectionService {
     return this.sectionRepository.find();
   }
 
+  async getOne(id: number): Promise<Section> {
+    return this.sectionRepository.findOneBy({ id: id });
+  }
+
   async addSection(section: CreateSectionDto): Promise<Section> {
     return this.sectionRepository.save(section);
   }

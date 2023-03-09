@@ -1,4 +1,11 @@
-import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
+import {
+  Entity,
+  Column,
+  PrimaryGeneratedColumn,
+  ManyToOne,
+  OneToMany,
+} from 'typeorm';
+import { Article } from 'src/articles/article.entity';
 
 @Entity()
 export class Section {
@@ -16,4 +23,7 @@ export class Section {
 
   @Column()
   slug: string;
+
+  @OneToMany(() => Article, (article) => article.section)
+  articles: Article[];
 }
