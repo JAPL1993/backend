@@ -18,6 +18,7 @@ export class AppService {
     return this.sectionRepository.find({
       select: {
         slug: true,
+        id: true,
       },
     });
   }
