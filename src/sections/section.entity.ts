@@ -24,6 +24,8 @@ export class Section {
   @Column()
   slug: string;
 
-  @OneToMany(() => Article, (article) => article.section)
+  @OneToMany(() => Article, (article) => article.section, {
+    onDelete: 'CASCADE',
+  })
   articles: Article[];
 }

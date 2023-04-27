@@ -34,7 +34,7 @@ export class ArticleController {
   @Put(':id')
   async updateArticle(
     @Param('id') id: number,
-    article: ArticleDto,
+    @Body() article: ArticleDto,
   ): Promise<UpdateResult> {
     return this.articleService.updateArticle(id, article);
   }

@@ -2,9 +2,9 @@ import { Entity, Column, PrimaryGeneratedColumn, ManyToOne } from 'typeorm';
 import { Article } from './article.entity';
 
 export enum ArticleType {
-  PARAMS = 'params',
+  PARAMS = 'PARAMS',
   BODY = 'BODY',
-  RESPONSE = 'response',
+  RESPONSE = 'RESPONSE',
 }
 
 @Entity()

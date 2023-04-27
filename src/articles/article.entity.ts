@@ -22,9 +22,13 @@ export class Article {
   @Column({ type: 'text' })
   description: string;
 
-  @OneToMany(() => ArticleDetail, (articleDetail) => articleDetail.article)
+  @OneToMany(() => ArticleDetail, (articleDetail) => articleDetail.article, {
+    onDelete: 'CASCADE',
+  })
   articleDetails: ArticleDetail[];
 
-  @ManyToOne(() => Section, (section) => section.articles)
+  @ManyToOne(() => Section, (section) => section.articles, {
+    onDelete: 'CASCADE',
+  })
   section: Section;
 }
