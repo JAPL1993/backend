@@ -5,7 +5,7 @@ import {
   ManyToOne,
   OneToMany,
 } from 'typeorm';
-import { Section } from 'src/sections/section.entity';
+import { SectionDetail } from 'src/sections/section-detail.entity';
 import { ArticleDetail } from './article-detail.entity';
 
 @Entity()
@@ -27,8 +27,8 @@ export class Article {
   })
   articleDetails: ArticleDetail[];
 
-  @ManyToOne(() => Section, (section) => section.articles, {
+  @ManyToOne(() => SectionDetail, (section) => section.articles, {
     onDelete: 'CASCADE',
   })
-  section: Section;
+  sectionDetail: SectionDetail;
 }

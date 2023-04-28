@@ -5,10 +5,11 @@ import {
   ManyToOne,
   OneToMany,
 } from 'typeorm';
-import { SectionDetail } from './section-detail.entity';
+import { Section } from './section.entity';
+import { Article } from 'src/articles/article.entity';
 
 @Entity()
-export class Section {
+export class SectionDetail {
   @PrimaryGeneratedColumn()
   id: number;
 
@@ -21,11 +22,11 @@ export class Section {
   @Column({ nullable: true })
   image: string;
 
-  @Column()
-  slug: string;
+  @ManyToOne(() => Section, (section) => section.sectionDetail)
+  section: Section;
 
-  @OneToMany(() => SectionDetail, (SectionDetail) => SectionDetail.section, {
+  @OneToMany(() => Article, (Article) => Article.sectionDetail, {
     onDelete: 'CASCADE',
   })
-  sectionDetail: SectionDetail[];
+  articles: Article[];
 }
